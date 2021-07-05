@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Flipcoin v3 on Ropsten testnet</title>
+    <script type="text/javascript" src="./abi.js?a=2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://npmcdn.com/moralis@0.0.5/dist/moralis.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Flipcoin v3 on Ropsten testnet</h1>
+        </div>
+    </div>
+    <div class="container">
+        <button id="login_button" style="display: none">Sign in with MetaMask</button>
+        <div id="game_info_1">
+            <h3>Game info</h3>
+            <span>Contract balance: </span>
+            <input type="number" id="contract_balance" readonly="true" value="0">
+            <button id="refresh_balance">refresh</button>
+            </br>
+            <input type="number" id="fund_number" value="1000">
+            <button id="fund_button">Fund contract</button>
+            </br></p> If you need funds on Ropsten testnet, you can use <a href="https://faucet.dimensions.network/">https://faucet.dimensions.network/</a></p>
+            </p>Credits to Filip from Moralis for doing the original tutorial: 
+             <ul>
+            <li>Part 1: <a href="https://www.youtube.com/watch?v=rd0TTLjQLy4&ab_channel=MoralisWeb3">https://www.youtube.com/watch?v=rd0TTLjQLy4&ab_channel=MoralisWeb3</a></li>
+            <li>Part 2: <a href="https://www.youtube.com/watch?v=Pj-X7sNyw2E&ab_channel=MoralisWeb3">https://www.youtube.com/watch?v=Pj-X7sNyw2E&ab_channel=MoralisWeb3</a></li>
+            </ul>
+        </div>
+        <div id="game" style="display: none;">
+            <br/>
+            <div id="game_result" style="display:none">
+            <h1 id="game_info">game result</h1>
+            </div>
+
+            <br/>
+            <h3>Play Heads or Tails</h3>
+            <input type="number" id="flip_number" value="0">
+            <button id="flip_heads">Heads</button>
+            <button id="flip_tails">Tails</button>
+
+            <br/>
+            <br/>
+            <br/>
+            <div id="address_info" stype="display:block">
+            <span>Your current address:</span>
+            <span id="current_address"></span>
+            <br/>
+            <span>Address balance:</spam>
+            <span id="current_address_balance"></span>
+            <button id="refresh_account_balance">refresh</button>
+            <br/>
+            </div>
+            <button id="logout_button" style="display:block">Logout</button>
+        </div>
+        <br/>
+        </br>
+        <div class="row" id="statistics">
+            <div class="col-md-12">
+                <h3>My last 10 bets</h3>
+                <table class="table" id="my_last_10_bets">
+                    <thead>
+                        <tr>
+                            <th scope="col">Address</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Side</th>
+                            <th scope="col">Bet size in wei</th>
+                            <th scope="col">Win/Lose</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <h3>Last 10 bets</h3>
+                <table class="table" id="last_10_bets">
+                    <thead>
+                        <tr>
+                            <th scope="col">Address</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Side</th>
+                            <th scope="col">Bet size in wei</th>
+                            <th scope="col">Win/Lose</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h3>Top 10 winners</h3>
+                <table class="table" id="top_10_winners">
+                    <thead>
+                        <tr>
+                            <th scope="col">Address</th>
+                            <th scope="col">Total wei won</th>
+                        </tr>
+                    </thead>
+                </table>
+
+            </div>
+            <div class="col-md-6">
+                <h3>Top 10 losers</h3>
+                <table class="table" id="top_10_losers">
+                    <thead>
+                        <tr>
+                            <th scope="col">Address</th>
+                            <th scope="col">Total wei won</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <h3>Top 10 bets</h3>
+                <table class="table" id="top_10_bets">
+                    <thead>
+                        <tr>
+                            <th scope="col">Address</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Side</th>
+                            <th scope="col">Bet size in wei</th>
+                            <th scope="col">Win/Lose</th>
+                        </tr>
+                    </thead>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./main.js?a=24"></script>
+</body>
+
+</html>
